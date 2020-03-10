@@ -1440,6 +1440,8 @@ MonoBehaviour:
   xF: 0
   r: 0
   l: 0
+  inputField1: {fileID: 1788949427}
+  inputField2: {fileID: 931078739}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
