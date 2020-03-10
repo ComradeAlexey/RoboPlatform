@@ -11,6 +11,7 @@ public class MouseInput : MonoBehaviour
     [SerializeField]
     private Platform platform;
     private UIManager UIManager;
+    public GameObject panel;
     enum ScaleSize
     {
         minSize,
@@ -56,11 +57,16 @@ public class MouseInput : MonoBehaviour
                         Detail hitObj = hit.transform.GetComponent<Detail>();
                         UIManager.detailName.text = hitObj.Name;
                         UIManager.detailDescription.text = hitObj.Description;
+                        panel.SetActive(true);
                     }
                     catch(Exception e) {
                         Debug.Log(e.Data);
                     }
                 }
+            }
+            else
+            {
+                panel.SetActive(false);
             }
         }
     }

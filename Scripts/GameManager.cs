@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public float yflf = 0, xflf = 0;
     public int yF, xF;
     public int r,l;
+    public InputField inputField1, inputField2;
     public void CalcJoystic()//расчёт байтов
     {
         yF = Mathf.Abs((int)force.y);//считываем с вертикального джойстика и делаем модуль полученного числа
@@ -189,7 +190,16 @@ public class GameManager : MonoBehaviour
                 m[1] = TestPlugin.unsetbit(m[1], 6);
             }
         }
+        try
+        {
+            m[2] = Convert.ToByte(inputField1.text);
+            m[3] = Convert.ToByte(inputField2.text);
+        }
+        catch (Exception e)
+        {
 
+            
+        }
         
         TestPlugin.SetMessage(m);//отправка смски)
         Debug.Log("Произошла отправка");
@@ -206,7 +216,7 @@ public class GameManager : MonoBehaviour
     }
     void Awake()//стартовый метод, запускается самым первым при старте сцены
     {
-        m = new byte[2];//инициализируем массив байтов
+        m = new byte[4];//инициализируем массив байтов
         TestPlugin.Init();//инициализируем джава класс
         sMenu = menuPanel;//инициализируем панель меню
         log.text = "0";//лог инициализируем
